@@ -14,3 +14,4 @@ interface IUsersRepository {
 }
 
 export { IUsersRepository, ICreateUserDTO };
+
