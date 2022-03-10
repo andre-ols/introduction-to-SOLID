@@ -3,7 +3,7 @@ import { ShowUserProfileUseCase } from "./ShowUserProfileUseCase";
 
 
 class ShowUserProfileController {
-  constructor(private showUserProfileUseCase: ShowUserProfileUseCase) {}
+  constructor(private showUserProfileUseCase: ShowUserProfileUseCase) { }
 
   handle(request: Request, response: Response): Response {
     const user_id = request.params.user_id;
@@ -12,7 +12,7 @@ class ShowUserProfileController {
       const user = this.showUserProfileUseCase.execute({ user_id });
       return response.status(200).send(user);
     }
-    catch(err) {
+    catch (err) {
       return response.status(404).send({
         error: err.message || "Unexpected error.",
       });

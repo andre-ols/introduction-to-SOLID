@@ -6,9 +6,12 @@ interface IRequest {
 }
 
 class ListAllUsersUseCase {
-  constructor(private usersRepository: IUsersRepository) {}
+  constructor(private usersRepository: IUsersRepository) { }
 
   execute({ user_id }: IRequest): User[] {
+    if (!user_id)
+      throw new Error("User id is required.");
+
     const userIsAdmin = this.usersRepository.findById(user_id);
 
     if (!userIsAdmin) throw new Error("User not found.");

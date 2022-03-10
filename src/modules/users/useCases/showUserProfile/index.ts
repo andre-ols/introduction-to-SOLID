@@ -9,3 +9,4 @@ const showUserProfileController = new ShowUserProfileController(
 );
 
 export { showUserProfileController };
+
